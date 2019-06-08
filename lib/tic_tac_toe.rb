@@ -116,9 +116,15 @@ def winner(board)
 end
 
 def play(board)
-  counter = 0
-  while counter < 9
+  until over?(board) do
     turn(board)
-    counter += 1
+  end
+  
+  if won?(board)
+    puts "Congratulations player #{winner(board)}!"
+  elsif draw?(board)
+    puts "Game has ended in a draw."
+  else
+    puts "uh oh"
   end
 end
